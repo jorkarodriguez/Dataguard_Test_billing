@@ -1,0 +1,6 @@
+c:\users\jorkaef\documents\visual studio 2015\Projects\facturacionDataguard\Modelo\bin\Debug\Modelo.dll.config
+c:\users\jorkaef\documents\visual studio 2015\Projects\facturacionDataguard\Modelo\bin\Debug\Modelo.dll
+c:\users\jorkaef\documents\visual studio 2015\Projects\facturacionDataguard\Modelo\bin\Debug\Modelo.pdb
+c:\users\jorkaef\documents\visual studio 2015\Projects\facturacionDataguard\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+c:\users\jorkaef\documents\visual studio 2015\Projects\facturacionDataguard\Modelo\obj\Debug\Modelo.dll
+c:\users\jorkaef\documents\visual studio 2015\Projects\facturacionDataguard\Modelo\obj\Debug\Modelo.pdb

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Dataguard_test" Class="EntidadesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\SERVER1;Initial Catalog=Dataguard_test;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="conection" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Producto" Member="Producto">
+    <Type Name="Producto">
+      <Column Name="ProductoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Detalle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Detalle_factura_Producto" Member="Detalle_factura" ThisKey="Detalle" OtherKey="DetallID" Type="Detalle_factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Detalle_factura" Member="Detalle_factura">
+    <Type Name="Detalle_factura">
+      <Column Name="DetallID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Productos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Detalle_factura_Producto" Member="Producto" ThisKey="DetallID" OtherKey="Detalle" Type="Producto" />
+      <Association Name="Detalle_factura_Producto1" Member="Producto1" ThisKey="DetallID" OtherKey="Detalle" Type="Producto1" />
+      <Association Name="Tb_Factura_Detalle_factura" Member="Tb_Factura" ThisKey="Factura" OtherKey="FacturaId" Type="Tb_Factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Producto" Member="Producto1">
+    <Type Name="Producto1">
+      <Column Name="ProductoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Detalle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Detalle_factura_Producto1" Member="Detalle_factura" ThisKey="Detalle" OtherKey="DetallID" Type="Detalle_factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_cliente" Member="Tb_cliente">
+    <Type Name="Tb_cliente">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NIT" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Tb_cliente_Tb_Factura" Member="Tb_Factura" ThisKey="Idusuario" OtherKey="Cliente" Type="Tb_Factura" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tb_Factura" Member="Tb_Factura">
+    <Type Name="Tb_Factura">
+      <Column Name="FacturaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Encabezado" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Detalle" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Tb_Factura_Detalle_factura" Member="Detalle_factura" ThisKey="FacturaId" OtherKey="Factura" Type="Detalle_factura" />
+      <Association Name="Tb_cliente_Tb_Factura" Member="Tb_cliente" ThisKey="Cliente" OtherKey="Idusuario" Type="Tb_cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_Detallefactura" Member="View_Detallefactura">
+    <Type Name="View_Detallefactura">
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="productos" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.View_TOTAL_A_PAGAR" Member="View_TOTAL_A_PAGAR">
+    <Type Name="View_TOTAL_A_PAGAR">
+      <Column Name="total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Idusuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
